@@ -1,8 +1,8 @@
 package main
 
 import ("gopkg.in/mgo.v2"
-	vesselProto "github.com/chauhanr/shipcon/vessel-service/proto/vessel"
-	pb "github.com/chauhanr/shipcon/consignment-service/proto/consignment"
+	vesselProto "github.com/chauhanr/shipcon-vessel-service/proto/vessel"
+	pb "github.com/chauhanr/shipcon-consignment-service/proto/consignment"
 	"context"
 	"log"
 )
@@ -20,10 +20,10 @@ func (s *service) CreateConsignment(ctx context.Context, req *pb.Consignment, re
 		Capacity: int32(len(req.Containers)),
 	})
 
-	log.Printf("Found contaoiner %v\n", vesselResponse.Vessel)
 	if err != nil{
 		return err
 	}
+	log.Printf("Found contaoiner %v\n", vesselResponse.Vessel)
 
 	req.VesselId = vesselResponse.Vessel.Id
 	err = s.GetRepo().Create(req)

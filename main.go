@@ -4,7 +4,7 @@ package main
 import (
 
 	pb "github.com/chauhanr/shipcon-consignment-service/proto/consignment"
-	vesselProto "github.com/chauhanr/shipcon/vessel-service/proto/vessel"
+	vesselProto "github.com/chauhanr/shipcon-vessel-service/proto/vessel"
 		"github.com/micro/go-micro"
 	"fmt"
 	"log"
