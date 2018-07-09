@@ -2,7 +2,6 @@ build:
 	protoc -I. --go_out=plugins=micro:$(GOPATH)/src/github.com/chauhanr/shipcon-consignment-service proto/consignment/consignment.proto
 	GOOS=linux GOARCH=amd64 go build -o shipcon-consignment-service
 	docker build -t shipcon-consignment-service .
-    go clean
 
 run:
 	docker run -d --net="host" \
